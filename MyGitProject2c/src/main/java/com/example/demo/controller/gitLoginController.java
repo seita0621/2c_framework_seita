@@ -18,7 +18,7 @@ public class gitLoginController {
         // IDとパスワードの検証
         if ("gitlogin".equals(id) && "gitpw".equals(password)) {
             // ログイン成功
-            return "redirect:/gittemlist";
+            return "redirect:/gititemlist";
         } else {
             // ログイン失敗
             model.addAttribute("error", "Invalid credentials");
