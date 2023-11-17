@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <script>
-        function checkLogin() {
-         
-            var userId = document.getElementById('id').value;
-            var password = document.getElementById('password').value;
-
-           
-            if (userId === 'gitlogin' && password === 'gitpw') {
-              
-                window.location.href = '/productlist';
-            } else {
-               
-                alert('ログインに失敗しました。');
-            }
-        }
-    </script>
+    <title>Login</title>
 </head>
 <body>
     <h2>Login</h2>
-    <form>
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <input type="button" value="Login" onclick="checkLogin()">
+    <form action="/login" method="post">
+        <div>
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
     </form>
+    <p th:if="${error}" style="color: red" th:text="${error}"></p>
 </body>
 </html>
